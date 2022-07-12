@@ -2,10 +2,12 @@
   "name": "k-element-ui",
   "version": "1.0.0",
   "description": "创建一套公共的vue组件库",
-  "main": "index.js",
+  "main": "lib/k-element-ui.min.js",
   "scripts": {
     "build:style": "gulp --gulpfile build/gen-style.js",
     "build:prod": "webpack --config build/webpack.prod.js",
+    "build:components": "webpack --config build/webpack.component.js",
+    "dist": "npm run build:style && npm run build:prod && npm run build:components",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy:build": "npm run docs:build && npm run deploy"
@@ -51,6 +53,7 @@
     "mocha": "^10.0.0",
     "node-sass": "^4.14.1",
     "rimraf": "^3.0.2",
+    "sass": "^1.53.0",
     "sass-loader": "^7.3.1",
     "sinon": "^14.0.0",
     "sinon-chai": "^3.7.0",

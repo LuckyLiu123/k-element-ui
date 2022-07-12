@@ -2,25 +2,30 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const webpackBaseConfig = require("./webpack.base.js");
-
+const components = require("./components.json");
 process.env.NODE_ENV = "production";
+
+// 为了能支持按需加载的功能，我们除了将整个组件库打包之外，还需要对样式和组件单独打包成单个的文件。
+const basePath = path.resolve(__dirname, "../");
+let entries = {};
+Object.keys(components).forEach((key) => {
+  entries[key] = path.join(basePath, "src", components[key]);
+});
 
 module.exports = merge(webpackBaseConfig, {
   devtool: "source-map",
   mode: "production",
-  entry: {
-    main: path.resolve(__dirname, "../src/index.js"), // 将src下的index.js 作为入口点
-  },
+  entry: entries,
   output: {
     path: path.resolve(__dirname, "../lib"),
     publicPath: "/lib/",
-    filename: "k-element-ui.min.js", // 改成自己的类库名
-    library: "k-element-ui", // 类库导出
+    filename: "[name].js",
+    chunkFilename: "[id].js",
+    // library: 'lime-ui',
     libraryTarget: "umd",
     umdNamedDefine: true,
   },
   externals: {
-    // 外部化对vue的依赖
     vue: {
       root: "Vue",
       commonjs: "vue",

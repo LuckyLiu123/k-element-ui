@@ -2,6 +2,7 @@
     <button 
         class="lime-button" 
         :class="{[`lime-button-${type}`]: true}" 
+        @click="clickHandle"
         type="button"
         >
         <slot></slot>
@@ -20,6 +21,11 @@ export default {
             type: String,
             default: 'default'
         }
-    }    
+    },
+    methods: {
+        clickHandle(evt){
+            this.$emit('click', evt);
+        }
+    }
 }
 </script>

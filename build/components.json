@@ -1,0 +1,4 @@
+{
+    "button": "packages/button/index.js",
+    "notice": "packages/notice/notice.js"
+}
