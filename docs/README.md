@@ -2,6 +2,7 @@
 
 <template>
     <k-button type="primary">Click me</k-button>
+    <k-input placeholder="请输入用户名"/>
 </template>
 
 <script>

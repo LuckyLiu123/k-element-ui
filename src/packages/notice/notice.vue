@@ -1,8 +1,8 @@
 <template>
-    <div class="lime-notice">
-        <div class="lime-notice__main" v-for="item in notices" :key="item.id">
-            <div class="lime-notice__title">{{item.title}}</div>
-            <div class="lime-notice__content">{{item.content}}</div>
+    <div class="k-element-notice">
+        <div class="k-element-notice__main" v-for="item in notices" :key="item.id">
+            <div class="k-element-notice__title">{{item.title}}</div>
+            <div class="k-element-notice__content">{{item.content}}</div>
         </div>
     </div>
 </template>

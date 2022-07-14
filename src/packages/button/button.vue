@@ -1,7 +1,7 @@
 <template>
     <button 
-        class="lime-button" 
-        :class="{[`lime-button-${type}`]: true}" 
+        class="k-element-button" 
+        :class="{[`k-element-button-${type}`]: true}" 
         @click="clickHandle"
         type="button"
         >
@@ -12,7 +12,7 @@
 import { oneOf } from '../../utils/assist';
 
 export default {
-    name: 'Button',
+    name: 'KButton',
     props: {
         type: {
             validator(value){

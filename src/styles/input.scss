@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import "common/var";
+@import "mixins/mixins";
+
+@include b(input) {
+    outline: none;
+    border: 1px solid #dddddd;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333;
+    line-height: normal;
+}
